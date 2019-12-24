@@ -16,6 +16,7 @@ namespace QuanLyHocSinh.Service
     {
         ISession session = NHIbernateSession.OpenSession();
         //ISession session =  BaseService.Open();
+        //comment develop
         public Student AddStudentByClasId(int id)
         {
             Student student = new Student();
@@ -44,7 +45,7 @@ namespace QuanLyHocSinh.Service
 
         public List<Class> SearchByName(string name)
         {
-            var _class = session.Query<Class>().Where<Class>(c => c.Name == name.ToUpper()).ToList();
+            var _class = session.Query<Class>().Where<Class>(c => c.Name.ToUpper() == name.ToUpper()).ToList();
             return _class;      
         }
 
