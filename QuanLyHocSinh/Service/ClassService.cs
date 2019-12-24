@@ -16,6 +16,7 @@ namespace QuanLyHocSinh.Service
     {
         ISession session = NHIbernateSession.OpenSession();
         //ISession session =  BaseService.Open();
+        // tester comment
         public Student AddStudentByClasId(int id)
         {
             Student student = new Student();
