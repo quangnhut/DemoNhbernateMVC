@@ -1,0 +1,74 @@
+﻿@model IEnumerable<QuanLyHocSinh.Models.StudentModel>
+
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="get">
+    <table>
+        <tr>
+            <th>
+                <h3 style="padding-right: 650px">@ViewBag.Message</h3>
+            </th>
+            <th style="">
+                <input type="text" id="key" name="key" />
+                <button type="submit" value="Index">Search</button>
+            </th>
+        </tr>
+    </table>
+</form>
+
+
+<form method="get">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center">
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th style="text-align: center">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th style="text-align: center">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th style="text-align: center">
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <th style="text-align: center">
+                    ClassName
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.ID)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.FirstName)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.LastName)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.Code)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.GetClassById(item.ClassID).Name)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    </td>
+                    <td style="text-align: center">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+    </table>
+</form>

@@ -1,0 +1,51 @@
+﻿@model QuanLyHocSinh.Domain.Student
+
+@{
+    ViewBag.Title = "Add Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Student</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<fieldset>
+
+    <div class="editor-label">
+        <p>Nhập Họ</p>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+    <div class="editor-label">
+        <p style="padding-top: 15px">Nhập Tên</p>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+    <div class="editor-label">
+        <p style="padding-top: 15px">Nhập Mã sinh viên</p>
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Code)
+        @Html.ValidationMessageFor(model => model.Code)
+    </div>
+
+
+    <p style="padding-top: 20px; padding-bottom: 25px">
+        <button type="submit" value="InsertStudent">Thêm</button>
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
