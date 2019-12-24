@@ -19,6 +19,7 @@ namespace QuanLyHocSinh.Service
         //comment develop
         public Student AddStudentByClasId(int id)
         {
+            string develop = "develop";
             Student student = new Student();
             return student;
         }
