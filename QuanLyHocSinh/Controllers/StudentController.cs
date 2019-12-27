@@ -9,11 +9,14 @@ using System.Web.Mvc;
 using QuanLyHocSinh.Domain;
 using QuanLyHocSinh.IService;
 using PagedList;
+using log4net;
 
 namespace QuanLyHocSinh.Controllers
 {
     public class StudentController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(StudentController));
+
         private IStudentService istudentservice;
         public StudentController(IStudentService service)
         {

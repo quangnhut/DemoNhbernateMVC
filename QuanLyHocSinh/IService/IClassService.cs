@@ -31,18 +31,5 @@ namespace QuanLyHocSinh.IService
         //develop commpent
         //develop commpent
 
-
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-
     }
 }

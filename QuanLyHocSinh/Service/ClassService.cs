@@ -16,8 +16,7 @@ namespace QuanLyHocSinh.Service
     public class ClassService : IClassService
     {
         ISession session = NHIbernateSession.OpenSession();
-        //ISession session =  BaseService.Open();
-        //comment develop
+        
         public Student AddStudentByClasId(int id)
         {
             string develop = "develop";
