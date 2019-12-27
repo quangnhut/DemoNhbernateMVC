@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using QuanLyHocSinh.Domain;
 using QuanLyHocSinh.IService;
+using PagedList;
 
 namespace QuanLyHocSinh.Controllers
 {
@@ -19,7 +20,7 @@ namespace QuanLyHocSinh.Controllers
             this.istudentservice = service;
         }
         // GET: Student
-        public ActionResult Index(string key)
+        public ActionResult Index(string key, int page = 1, int pagesize = 3)
         {
             var model = istudentservice.GetAll();
                 ViewBag.Message = "STUDENT PAGE";
@@ -43,12 +44,14 @@ namespace QuanLyHocSinh.Controllers
                     var studentmodel = StudentModel.ToModel(studentdomain[i]);
                     studentmodelsearch.Add(studentmodel);
                 }
-                return View(studentmodelsearch);
+                studentmodelsearch.OrderByDescending(s => s.ID).ToList();
+
+                return View(studentmodelsearch.ToPagedList(page, pagesize));
             }
 
+            liststudent = liststudent.OrderByDescending(s => s.ID).ToList();
 
-
-            return View(liststudent);
+            return View(liststudent.ToPagedList(page, pagesize));
             
         }
 

@@ -11,6 +11,7 @@ namespace QuanLyHocSinh.IService
     public interface IClassService 
     {
         List<Class> GetAll();
+        IEnumerable<Class> GetPagedList(int page, int pagesize);
         Class Get(int id);
         Class Update(int id, Class _class);
         void Insert(Class insertclass);
@@ -18,7 +19,6 @@ namespace QuanLyHocSinh.IService
         Student AddStudentByClasId(int id);
         void InsertStudent(Student student);
         List<Class> SearchByName(string name);
-        //new line
-        void oderby();
+        List<Student> GetStudentByClassId(int id);
     }
 }

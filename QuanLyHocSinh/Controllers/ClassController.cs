@@ -10,6 +10,8 @@ using QuanLyHocSinh.Domain;
 using QuanLyHocSinh.Service;
 using QuanLyHocSinh.IService;
 using Castle.Windsor;
+using PagedList;
+using PagedList.Mvc;
 
 namespace QuanLyHocSinh.Controllers
 {
@@ -25,11 +27,12 @@ namespace QuanLyHocSinh.Controllers
 
 
         //GET: Class
-        public ActionResult Index( string name)
+        public ActionResult Index( string name, int page = 1, int pagesize = 3)
         {
             ViewBag.Message = "CLASS PAGE";
 
             var model = iclassservice.GetAll();
+            //var model = iclassservice.GetPagedList(page, pagesize).OrderByDescending(c => c.ID).ToList();
 
             List<ClassModel> listclass = new List<ClassModel>();
 
@@ -52,11 +55,14 @@ namespace QuanLyHocSinh.Controllers
                     var _classmodel = ClassModel.ToModel(classdomain[i]);
                     classmodelsearch.Add(_classmodel);
                 }
-               
-                return View(classmodelsearch);
+                classmodelsearch = classmodelsearch.OrderByDescending(c => c.ID).ToList();
+
+                return View(classmodelsearch.ToPagedList(page, pagesize));
             }
 
-            return View(listclass);
+            listclass = listclass.OrderByDescending(c => c.ID).ToList();
+
+            return View(listclass.ToPagedList(page, pagesize));
 
         }
         public ActionResult Create()
@@ -169,18 +175,18 @@ namespace QuanLyHocSinh.Controllers
 
         }
 
-        //[HttpGet]
-        //public ActionResult Search(string name)
-        //{
-        //    if (iclassservice.SearchByName(name) != null)
-        //    {
-        //        return View(iclassservice.SearchByName(name));
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+        public ActionResult ViewStudent(int id)
+        {
+            var studentdomain =  iclassservice.GetStudentByClassId(id);
+            List<StudentModel> liststudent = new List<StudentModel>();
+
+            for (int i = 0; i < studentdomain.Count; i++)
+            {
+                var studentmodel = StudentModel.ToModel(studentdomain[i]);
+                liststudent.Add(studentmodel);
+            }
+            return View(liststudent);
+        }
 
 
 

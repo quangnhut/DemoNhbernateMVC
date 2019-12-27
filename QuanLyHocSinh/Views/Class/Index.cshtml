@@ -1,22 +1,25 @@
-﻿@model IEnumerable<QuanLyHocSinh.Models.ClassModel>
+﻿@*@model IEnumerable<QuanLyHocSinh.Models.ClassModel>*@
+@model PagedList.IPagedList<QuanLyHocSinh.Models.ClassModel>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Class";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>@ViewBag.Message</h3>
+<h3 style="text-align: center">@ViewBag.Message</h3>
+<br />
 <form method="get">
     <table>
             <tr>
-                <th style="padding-right: 750px">
+                <th style="padding-right: 700px">
                     <p>
                         @Html.ActionLink("Create New Class", "Create")
                     </p>
                 </th>
-                <th>
+                <th style="padding-bottom: 10px">
                     <input type="text" id="name" name="name" />
-                    <button type="submit" value="Index">Search</button>
+                    <button class="btn btn-lg btn-success" type="submit" value="Index" style=" height: 30px; padding-top: 1px ">Search</button>
                 </th>
             </tr>
     </table>
@@ -24,11 +27,12 @@
 <table class="table table-bordered">
     <tr>
         <th style="text-align: center">
-            @Html.DisplayNameFor(model => model.ID)
+            ID
         </th>
         <th style="text-align: center">
-            @Html.DisplayNameFor(model => model.Name)
+            Ten lop
         </th>
+        <th></th>
         <th></th>
         <th></th>
         <th></th>
@@ -43,7 +47,7 @@
         <td style="text-align: center">
             @Html.DisplayFor(modelitem => item.Name)
         </td>
-       
+
         <td style="text-align: center">
             @Html.ActionLink("Edit", "Edit", new { id = item.ID })
         </td>
@@ -53,6 +57,14 @@
         <td style="text-align: center">
             @Html.ActionLink("Add New Student", "InsertStudent", new { id = item.ID })
         </td>
+        <td style="text-align: center">
+            @Html.ActionLink("View Student", "ViewStudent", new { id = item.ID })
+        </td>
     </tr>
     }
 </table>
+<div style="margin:30px">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
