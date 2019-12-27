@@ -44,7 +44,9 @@ namespace QuanLyHocSinh.Controllers
 
             if (name == "")
             {
-                return View(listclass);
+                listclass = listclass.OrderByDescending(c => c.ID).ToList();
+
+                return View(listclass.ToPagedList(page, pagesize));
             }
             else if(name != null)
             {

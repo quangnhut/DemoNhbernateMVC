@@ -33,7 +33,8 @@ namespace QuanLyHocSinh.Controllers
 
             if (key == "")
             {
-                return View(liststudent);
+                liststudent = liststudent.OrderByDescending(s => s.ID).ToList();
+                return View(liststudent.ToPagedList(page, pagesize));
             }
             else if (key != null)
             {
@@ -50,7 +51,6 @@ namespace QuanLyHocSinh.Controllers
             }
 
             liststudent = liststudent.OrderByDescending(s => s.ID).ToList();
-
             return View(liststudent.ToPagedList(page, pagesize));
             
         }
@@ -87,7 +87,6 @@ namespace QuanLyHocSinh.Controllers
 
 
         }
-
 
         public ActionResult Delete(int ID)
         {
