@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QuanLyHocSinh.Models.StudentModel>
+
+@{
+    ViewBag.Title = "ViewStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewStudent</h2>
+
+
+<form method="get">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center">
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th style="text-align: center">
+                    Họ
+                </th>
+                <th style="text-align: center">
+                    Tên
+                </th>
+                <th style="text-align: center">
+                    Mã sinh viên
+                </th>
+               
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.ID)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.FirstName)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.LastName)
+                    </td>
+                    <td style="text-align: center">
+                        @Html.DisplayFor(modelitem => item.Code)
+                    </td>
+                </tr>
+            }
+    </table>
+</form>
+<div>
+    @Html.ActionLink("Về Trang chủ", "Index")
+</div>

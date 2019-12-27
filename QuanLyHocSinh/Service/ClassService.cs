@@ -9,6 +9,7 @@ using NHibernate;
 using QuanLyHocSinh.Models;
 using FX.Data;
 using System.Linq.Expressions;
+using PagedList;
 
 namespace QuanLyHocSinh.Service
 {
@@ -16,10 +17,8 @@ namespace QuanLyHocSinh.Service
     {
         ISession session = NHIbernateSession.OpenSession();
         //ISession session =  BaseService.Open();
-        //comment develop
         public Student AddStudentByClasId(int id)
         {
-            string develop = "develop";
             Student student = new Student();
             return student;
         }
@@ -69,6 +68,19 @@ namespace QuanLyHocSinh.Service
             var classupdate = session.Get<Class>(id);
             classupdate.Name = _class.Name;
             return classupdate;
+        }
+
+        public List<Student> GetStudentByClassId(int id)
+        {
+            var student = session.Query<Student>().Where<Student>(c => c.ClassID == id).ToList();
+            return student;
+        }
+
+        public IEnumerable<Class> GetPagedList(int page, int pagesize)
+        {
+            var classdomain = session.Query<Class>();
+
+            return classdomain.OrderByDescending(c => c.ID).ToPagedList(page, pagesize);
         }
     }
 }

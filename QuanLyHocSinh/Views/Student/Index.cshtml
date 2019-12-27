@@ -1,19 +1,23 @@
-﻿@model IEnumerable<QuanLyHocSinh.Models.StudentModel>
+﻿@*@model IEnumerable<QuanLyHocSinh.Models.StudentModel>*@
+@model PagedList.IPagedList<QuanLyHocSinh.Models.StudentModel>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Student";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h3 style="text-align:center">@ViewBag.Message</h3>
+<br />
 <form method="get">
     <table>
         <tr>
             <th>
-                <h3 style="padding-right: 650px">@ViewBag.Message</h3>
+                <h3 style="padding-right: 830px;padding-bottom: 30px"></h3>
             </th>
             <th style="">
                 <input type="text" id="key" name="key" />
-                <button type="submit" value="Index">Search</button>
+                <button class="btn btn-lg btn-success" type="submit" value="Index" style=" height: 30px; padding-top: 1px ">Search</button>
             </th>
         </tr>
     </table>
@@ -25,7 +29,7 @@
         <thead class="thead-dark">
             <tr>
                 <th style="text-align: center">
-                    @Html.DisplayNameFor(model => model.ID)
+                    ID
                 </th>
                 <th style="text-align: center">
                     Họ
@@ -71,3 +75,8 @@
             }
     </table>
 </form>
+<div style="margin:30px">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
