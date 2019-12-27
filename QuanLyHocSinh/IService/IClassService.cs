@@ -19,5 +19,6 @@ namespace QuanLyHocSinh.IService
         void InsertStudent(Student student);
         List<Class> SearchByName(string name);
         //new line
+        void oderby();
     }
 }

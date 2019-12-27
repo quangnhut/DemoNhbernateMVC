@@ -72,5 +72,12 @@ namespace QuanLyHocSinh.Service
             classupdate.Name = _class.Name;
             return classupdate;
         }
+
+        public void oderby()
+        {
+            int n;
+            string s;
+            throw new NotImplementedException();
+        }
     }
 }
