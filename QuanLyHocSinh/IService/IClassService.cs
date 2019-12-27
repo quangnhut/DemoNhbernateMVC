@@ -18,5 +18,6 @@ namespace QuanLyHocSinh.IService
         Student AddStudentByClasId(int id);
         void InsertStudent(Student student);
         List<Class> SearchByName(string name);
+        //new line
     }
 }
