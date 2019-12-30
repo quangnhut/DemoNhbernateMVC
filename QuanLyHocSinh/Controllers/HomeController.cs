@@ -10,6 +10,7 @@ namespace QuanLyHocSinh.Controllers
     {
         public ActionResult Index()
         {
+            string s;
             return View();
         }
 
@@ -25,6 +26,10 @@ namespace QuanLyHocSinh.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public void vovan()
+        {
+            return;
         }
     }
 }
