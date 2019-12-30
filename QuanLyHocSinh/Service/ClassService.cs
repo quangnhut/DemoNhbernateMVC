@@ -10,11 +10,15 @@ using QuanLyHocSinh.Models;
 using FX.Data;
 using System.Linq.Expressions;
 using PagedList;
+using log4net;
+using FX.Utils.MVCMessage;
 
 namespace QuanLyHocSinh.Service
 {
     public class ClassService : IClassService
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(ClassService));
+
         ISession session = NHIbernateSession.OpenSession();
         
         public Student AddStudentByClasId(int id)
@@ -34,6 +38,7 @@ namespace QuanLyHocSinh.Service
         public Class Get(int id)
         {
             var getclass = session.Get<Class>(id);
+            
             return getclass;
         }
 
@@ -83,5 +88,8 @@ namespace QuanLyHocSinh.Service
 
             return classdomain.OrderByDescending(c => c.ID).ToPagedList(page, pagesize);
         }
+
+
+
     }
 }
