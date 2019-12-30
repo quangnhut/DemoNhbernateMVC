@@ -10,6 +10,8 @@ namespace QuanLyHocSinh.Controllers
     {
         public ActionResult Index()
         {
+            int i = 0;
+
             string s;
             return View();
         }
@@ -28,6 +30,10 @@ namespace QuanLyHocSinh.Controllers
             return View();
         }
         public void vovan()
+        {
+            return;
+        }
+        public void taolao()
         {
             return;
         }
