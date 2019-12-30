@@ -32,7 +32,6 @@ namespace QuanLyHocSinh.Controllers
             ViewBag.Message = "CLASS PAGE";
 
             var model = iclassservice.GetAll();
-            //var model = iclassservice.GetPagedList(page, pagesize).OrderByDescending(c => c.ID).ToList();
 
             List<ClassModel> listclass = new List<ClassModel>();
 
