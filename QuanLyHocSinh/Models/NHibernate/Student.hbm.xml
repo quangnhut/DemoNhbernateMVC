@@ -13,9 +13,6 @@
     <property name="Code" column="Code" type="string"/>
     <property name="ClassID" column="ClassID" type="int"/>
 
-
-    <!--<one-to-one name="ClassID" column="ClassID" cascade = "save-update"></one-to-one>-->
-
   </class>
 
 </hibernate-mapping>

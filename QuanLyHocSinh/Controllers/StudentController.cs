@@ -9,11 +9,14 @@ using System.Web.Mvc;
 using QuanLyHocSinh.Domain;
 using QuanLyHocSinh.IService;
 using PagedList;
+using log4net;
 
 namespace QuanLyHocSinh.Controllers
 {
     public class StudentController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(StudentController));
+
         private IStudentService istudentservice;
         public StudentController(IStudentService service)
         {
@@ -67,6 +70,7 @@ namespace QuanLyHocSinh.Controllers
 
         public ActionResult Edit(int ID, Student student)
         {
+            //message = "";
 
             try
             {
@@ -75,16 +79,16 @@ namespace QuanLyHocSinh.Controllers
                 istudentservice.Insert(editstudent);
 
                 return RedirectToAction("Index");
-
+               
             }
+            
 
-            catch
+            catch (Exception ex)
             {
-
+                StudentController.log.Error((object)(" Create -" + (object)ex));
                 return View();
 
             }
-
 
         }
 
@@ -109,6 +113,7 @@ namespace QuanLyHocSinh.Controllers
 
             catch (Exception exception)
             {
+                StudentController.log.Error((object)(" Create -" + (object)exception));
 
                 return View();
 

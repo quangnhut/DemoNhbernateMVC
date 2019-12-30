@@ -21,18 +21,15 @@ namespace QuanLyHocSinh.IService
         List<Class> SearchByName(string name);
         List<Student> GetStudentByClassId(int id);
 
-
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
-        //tester comment
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
+        //develop commpent
 
     }
 }

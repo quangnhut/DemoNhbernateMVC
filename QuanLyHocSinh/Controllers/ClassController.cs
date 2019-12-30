@@ -11,12 +11,13 @@ using QuanLyHocSinh.Service;
 using QuanLyHocSinh.IService;
 using Castle.Windsor;
 using PagedList;
-using PagedList.Mvc;
+using log4net;
 
 namespace QuanLyHocSinh.Controllers
 {
     public class ClassController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(StudentController));
 
         private IClassService iclassservice;
 
@@ -32,8 +33,6 @@ namespace QuanLyHocSinh.Controllers
             ViewBag.Message = "CLASS PAGE";
 
             var model = iclassservice.GetAll();
-            //var model = iclassservice.GetPagedList(page, pagesize).OrderByDescending(c => c.ID).ToList();
-            //new commner
 
             List<ClassModel> listclass = new List<ClassModel>();
 
@@ -78,18 +77,15 @@ namespace QuanLyHocSinh.Controllers
         {
             try
             {
-
                 iclassservice.Insert(_class);
 
                 return RedirectToAction("Index");
-
             }
 
-            catch (Exception exception)
+            catch (Exception ex)
             {
-
+                ClassController.log.Error((object)(" Create -" + (object)ex));              
                 return View();
-
             }
         }
 
@@ -113,7 +109,7 @@ namespace QuanLyHocSinh.Controllers
 
             catch (Exception exception)
             {
-
+                ClassController.log.Error((object)(" Create -" + (object)exception));
                 return View();
 
             }
@@ -144,7 +140,7 @@ namespace QuanLyHocSinh.Controllers
 
             catch (Exception ex)
             {
-
+                ClassController.log.Error((object)(" Create -" + (object)ex));
                 return View();
 
             }
@@ -171,7 +167,7 @@ namespace QuanLyHocSinh.Controllers
 
             catch (Exception exception)
             {
-
+                ClassController.log.Error((object)(" Create -" + (object)exception));
                 return View();
 
             }
@@ -190,8 +186,6 @@ namespace QuanLyHocSinh.Controllers
             }
             return View(liststudent);
         }
-
-
 
     }
 }
