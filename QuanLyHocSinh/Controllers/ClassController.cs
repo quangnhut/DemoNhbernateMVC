@@ -33,6 +33,7 @@ namespace QuanLyHocSinh.Controllers
 
             var model = iclassservice.GetAll();
             //var model = iclassservice.GetPagedList(page, pagesize).OrderByDescending(c => c.ID).ToList();
+            //new commner
 
             List<ClassModel> listclass = new List<ClassModel>();
 
