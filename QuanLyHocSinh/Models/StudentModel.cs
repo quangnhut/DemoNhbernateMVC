@@ -9,11 +9,6 @@ namespace QuanLyHocSinh.Models
 {
     public class StudentModel
     {
-        //public virtual int ID { get; set; }
-        //public virtual string FirstName { get; set; }
-        //public virtual string LastName { get; set; }
-        //public virtual string Code { get; set; }
-        //public virtual int ClassID { get; set; }
 
         public int ID { get; set; }
         public string FirstName { get; set; }

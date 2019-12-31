@@ -11,10 +11,7 @@ namespace QuanLyHocSinh.Models
 {
     public class ClassModel
     {
-        //public virtual int ID { get; set; }
-        //public virtual string Name { get; set; }
-        //public virtual ISet<Student> Students { get; set; }
-
+       
         public int ID { get; set; }
         public string Name { get; set; }
         public ISet<QuanLyHocSinh.Domain.Student> Students { get; set; }
@@ -34,16 +31,6 @@ namespace QuanLyHocSinh.Models
             };
         }
 
-        //public Student AddStudent(int id)
-        //{
-        //    using (ISession session = NHIbernateSession.OpenSession())
-        //    {
-        //        var getclassname = session.Query<Class>().FirstOrDefault<Class>(c => c.ID == id);
-        //        Student student = new Student();
-        //        student.ClassID = getclassname.ID;
-        //        return student;
-        //    }
-        //}
 
 
     }
