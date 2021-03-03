@@ -30,7 +30,7 @@ namespace QuanLyHocSinh.Controllers
         //GET: Class
         public ActionResult Index( string name, int page = 1, int pagesize = 3)
         {
-            ViewBag.Message = "CLASS PAGE";
+            ViewBag.Message = "DEPARTMENT";
 
             var model = iclassservice.GetAll();
 

@@ -11,25 +11,25 @@
 <form method="get">
     <table>
             <tr>
-                <th style="padding-right: 700px">
+                <th style="padding-right: 658px">
                     <p>
-                        @Html.ActionLink("Create New Class", "Create")
+                        @Html.ActionLink("Create New Department", "Create")
                     </p>
                 </th>
                 <th style="padding-bottom: 10px">
                     <input type="text" id="name" name="name" />
-                    <button class="btn btn-lg btn-success" type="submit" value="Index">Search</button>
+                    <button class="btn btn-lg btn-success" type="submit" value="Index" style="font-size: x-small">Search</button>
                 </th>
             </tr>
     </table>
 </form>
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color: cornflowerblue">
         <th style="text-align: center">
             ID
         </th>
         <th style="text-align: center">
-            Tên lớp
+            Phòng ban
         </th>
         <th></th>
         <th></th>
@@ -54,10 +54,10 @@
             @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
         <td style="text-align: center">
-            @Html.ActionLink("Add New Student", "InsertStudent", new { id = item.ID })
+            @Html.ActionLink("Add New Employee", "InsertStudent", new { id = item.ID })
         </td>
         <td style="text-align: center">
-            @Html.ActionLink("View Student", "ViewStudent", new { id = item.ID })
+            @Html.ActionLink("View Employee", "ViewStudent", new { id = item.ID })
         </td>
     </tr>
     }

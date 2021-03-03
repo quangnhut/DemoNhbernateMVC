@@ -26,7 +26,7 @@ namespace QuanLyHocSinh.Controllers
         public ActionResult Index(string key, int page = 1, int pagesize = 3)
         {
             var model = istudentservice.GetAll();
-                ViewBag.Message = "STUDENT PAGE";
+                ViewBag.Message = "EMPLOYEE";
                 List<StudentModel> liststudent = new List<StudentModel>();
                 for (int i=0; i< model.Count; i++)
                 {
