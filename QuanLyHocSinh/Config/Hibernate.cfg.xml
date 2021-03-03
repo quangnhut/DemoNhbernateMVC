@@ -2,7 +2,7 @@
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <session-factory>
     <property name="connection.connection_string">
-      Data Source=ADMIN-PC\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Persist Security Info=True;User ID=sa;Password=12345678;
+      Data Source=DESKTOP-BVCNUUO\SQLEXPRESS;Initial Catalog=QuanLyHocSinh;Persist Security Info=True;User ID=sa;Password=12345678;
     </property>
     <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
     <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>

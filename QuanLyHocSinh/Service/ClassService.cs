@@ -88,8 +88,5 @@ namespace QuanLyHocSinh.Service
 
             return classdomain.OrderByDescending(c => c.ID).ToPagedList(page, pagesize);
         }
-
-
-
     }
 }

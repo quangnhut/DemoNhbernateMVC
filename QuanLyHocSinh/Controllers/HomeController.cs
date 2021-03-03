@@ -10,7 +10,6 @@ namespace QuanLyHocSinh.Controllers
     {
         public ActionResult Index()
         {
-            int i = 0;
 
             string s;
             return View();
