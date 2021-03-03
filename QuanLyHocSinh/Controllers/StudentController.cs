@@ -58,7 +58,6 @@ namespace QuanLyHocSinh.Controllers
             
         }
 
-
         public ActionResult Edit(int ID)
         {
 
@@ -81,8 +80,6 @@ namespace QuanLyHocSinh.Controllers
                 return RedirectToAction("Index");
                
             }
-            
-
             catch (Exception ex)
             {
                 StudentController.log.Error((object)(" Create -" + (object)ex));
@@ -108,7 +105,6 @@ namespace QuanLyHocSinh.Controllers
                 istudentservice.Delete(ID, student);
 
                 return RedirectToAction("Index");
-
             }
 
             catch (Exception exception)
@@ -116,7 +112,6 @@ namespace QuanLyHocSinh.Controllers
                 StudentController.log.Error((object)(" Create -" + (object)exception));
 
                 return View();
-
             }
 
         }
