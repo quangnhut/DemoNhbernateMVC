@@ -26,7 +26,6 @@ namespace QuanLyHocSinh.Controllers
             this.iclassservice = service;
         }
 
-
         //GET: Class
         public ActionResult Index( string name, int page = 1, int pagesize = 3)
         {
@@ -89,7 +88,6 @@ namespace QuanLyHocSinh.Controllers
             }
         }
 
-
         [HttpGet]
         public ActionResult InsertStudent(int ID)
         {
@@ -115,7 +113,6 @@ namespace QuanLyHocSinh.Controllers
             }
         }
 
-
         public ActionResult Edit(int ID)
         {
 
@@ -135,7 +132,6 @@ namespace QuanLyHocSinh.Controllers
                 iclassservice.Insert(editclass);
 
                 return RedirectToAction("Index");
-
             }
 
             catch (Exception ex)
@@ -169,7 +165,6 @@ namespace QuanLyHocSinh.Controllers
             {
                 ClassController.log.Error((object)(" Create -" + (object)exception));
                 return View();
-
             }
 
         }
